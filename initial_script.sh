@@ -8,13 +8,19 @@
 vgmplayer(){
   cd /home/pi/Music/vgmSet
   files=(*.vgm)
+  count=0
 
-  echo "files in /Music/vgmSet"
+  echo ""
+  echo "files in /Music/vgmSet" 
+  echo ""
 
   for i in ${files[@]}
   do
-    echo $i
+    echo $count $i
+    ((count++))
   done
+
+  echo ""
 }
 
 vgmplayer
