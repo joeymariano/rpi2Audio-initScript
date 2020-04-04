@@ -5,13 +5,13 @@
 
 # vgmplayer on boot
 
-vgmplayer(){
-  cd /home/pi/Music/vgmSet
-  files=(*.vgm)
-  count=0
+cd /home/pi/Music/vgmSet
+files=(*.vgm)
+count=0
 
+setup(){
   echo ""
-  echo "files in /Music/vgmSet" 
+  echo "files in ~/Music/vgmSet"
   echo ""
 
   for i in ${files[@]}
@@ -23,4 +23,4 @@ vgmplayer(){
   echo ""
 }
 
-vgmplayer
+setup
