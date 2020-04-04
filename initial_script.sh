@@ -14,13 +14,21 @@ setup(){
   echo "files in ~/Music/vgmSet"
   echo ""
 
-  for i in ${files[@]}
+  for filename in ${files[@]}
   do
-    echo $count $i
+    echo $count $filename
     ((count++))
   done
 
   echo ""
 }
 
+readInput(){
+  echo -n "pleez select your track: "
+
+  read -n 1 ans
+  return $ans
+}
+
 setup
+readInput
