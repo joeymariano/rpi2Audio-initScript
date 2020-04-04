@@ -9,7 +9,7 @@ cd /home/pi/Music/vgmSet
 files=(*.vgm)
 count=0
 
-setup(){
+listTracks(){
   echo ""
   echo "files in ~/Music/vgmSet"
   echo ""
@@ -23,12 +23,16 @@ setup(){
   echo ""
 }
 
-readInput(){
+selectTrack(){
   echo -n "pleez select your track: "
 
   read -n 1 ans
+
+  echo ""
+  echo ""
+
   return $ans
 }
 
-setup
-readInput
+listTracks
+selectTrack
