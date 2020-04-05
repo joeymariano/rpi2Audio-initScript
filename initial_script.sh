@@ -27,18 +27,17 @@ listTracks(){
 }
 
 selectTrack(){
-  echo -n "pleez select your track: "
-
-  read -n 2 ans
+  read -n 2 -p "pleez select your track: "
+  echo ""
 
   # need to handle errors here
   # if detect q exit program
   # if not a valid  number select again
 
-#  if [ "$ans" = "q" ]
-#  then
-#    return break
-#  fi
+  if [[ $REPLY == "q" ]]
+  then
+    end=true
+  fi
 
 #  if [ $ans > ${#files[@]} ]
 #  then
@@ -58,5 +57,10 @@ while :
 do
   listTracks
   selectTrack
-  playTrack
+  if [[ $end == true ]]
+  then
+    break
+  else
+    playTrack
+  fi
 done
