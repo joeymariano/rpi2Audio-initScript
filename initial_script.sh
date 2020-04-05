@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # mocp /home/pi/Music
-# uncomment for audio player first
+# uncomment this line
+# and comment out the last
+# for audio player instead
 
 # vgmplayer on boot
 
