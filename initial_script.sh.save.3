@@ -3,13 +3,14 @@
 # mocp /home/pi/Music
 # uncomment for audio player first
 
-# vgmplayer on boot
+# vgmplay-AR! executes by ./initial_script.sh
 
 cd /home/pi/Music/vgmSet
 files=(*.vgm)
 count=0
-ans=""
+inpt=""
 end=false
+regex='^0-9+$' 
 
 listTracks(){
   count=0
@@ -29,21 +30,27 @@ listTracks(){
 selectTrack(){
   echo -n "pleez select your track: "
 
-  read -n 2 ans
+  read -n 2 inpt
 
   # need to handle errors here
   # if detect q exit program
   # if not a valid  number select again
 
-#  if [ "$ans" = "q" ]
+  if [ $inpt = "q" ]
+  then
+    $end = true
+  fi
+
+#  if [ $inpt > ${#files[@]} ]
 #  then
-#    return break
+#    echo "eRr0R => trY agAiN ...f0oL."
+#    echo ""
+#    selectTrack
 #  fi
 
-#  if [ $ans > ${#files[@]} ]
-#  then
-#    echo eRr0r
-#    echo
+  if [ $inpt != $re ]#  then
+#    echo "eRr0R => nAn doOD."
+#  else
 #    selectTrack
 #  fi
 
@@ -51,12 +58,25 @@ selectTrack(){
 }
 
 playTrack(){
-  vgmplay ${files[ans]}
+  vgmplay ${files[inpt]}
 }
 
 while :
 do
   listTracks
   selectTrack
-  playTrack
+  if [ $end ]
+  then
+    echo "...EXIT"
+    sleep .5s
+    echo ""
+    sleep .5s
+    echo "...FINE"
+    sleep .5s
+    echo ""
+    sleep .5s
+    break
+  else
+    playTrack
+  fi
 done

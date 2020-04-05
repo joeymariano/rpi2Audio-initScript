@@ -35,18 +35,19 @@ selectTrack(){
   # if detect q exit program
   # if not a valid  number select again
 
-#  if [ "$ans" = "q" ]
-#  then
-#    return break
-#  fi
+  if [ $ans = "q" ]
+  then
+    $end = true
+  fi
 
-#  if [ $ans > ${#files[@]} ]
-#  then
-#    echo eRr0r
-#    echo
-#    selectTrack
-#  fi
+ # if [ $ans > ${#files[@]} ]
+ # then
+ #   echo "error"
+ #   echo ""
+ #   selectTrack
+ # fi
 
+  echo ""
   echo ""
 }
 
@@ -58,5 +59,10 @@ while :
 do
   listTracks
   selectTrack
-  playTrack
+  if ${end}
+  then
+    break
+  else
+    playTrack
+  fi
 done
