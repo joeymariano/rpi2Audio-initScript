@@ -5,21 +5,29 @@
 
 # vgmplayer on boot
 
+# change dir and setup variables
 cd /home/pi/Music/vgmSet
-files=(*.vgm)
+files=(*.vgm) # load all files into array
 count=0
 ans=""
 end=false
 
+# colors for echo
+LCYAN="\033[1;36m"
+LPURPLE="\033[1;35m"
+PURPLE="\033[0;35m"
+CYAN="\033[0;36m"
+LGREEN="\033[1;32m"
+NC="\033[0m"
+
 listTracks(){
   count=0
   echo ""
-  echo "files in ~/Music/vgmSet"
-  echo ""
+  echo -e "${PURPLE}files in ${LPURPLE}~/Music/vgmSet${NC}\n"
 
   for filename in ${files[@]}
   do
-    echo $count $filename
+    echo -e $CYAN$count$NC $LCYAN$filename$NC
     ((count++))
   done
 
@@ -27,7 +35,8 @@ listTracks(){
 }
 
 selectTrack(){
-  read -n 2 -p "pleez select your track: "
+  echo -n -e "${PURPLE}pleez select your ${LPURPLE}track: ${LGREEN}"
+  read -n 2
   echo ""
 
   if [[ $REPLY == "q" ]]
