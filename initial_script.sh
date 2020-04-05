@@ -42,8 +42,6 @@ selectTrack(){
       selectTrack
     fi
   fi
-
-  echo ""
 }
 
 playTrack(){
