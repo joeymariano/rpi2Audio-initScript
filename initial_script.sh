@@ -20,14 +20,15 @@ CYAN="\033[0;36m"
 LGREEN="\033[1;32m"
 NC="\033[0m"
 
+# functions
 listTracks(){
   count=0
   echo ""
-  echo -e "${PURPLE}files in ${LPURPLE}~/Music/vgmSet${NC}\n"
+  echo -e "${PURPLE}files in ${LPURPLE}~/Music/vgmSet${NC}\n" # -e to allow color
 
   for filename in ${files[@]}
   do
-    echo -e $CYAN$count$NC $LCYAN$filename$NC
+    echo -e $CYAN$count$NC $LCYAN$filename$NC # clusterfuck but yea...
     ((count++))
   done
 
@@ -35,7 +36,7 @@ listTracks(){
 }
 
 selectTrack(){
-  echo -n -e "${PURPLE}pleez select your ${LPURPLE}track: ${LGREEN}"
+  echo -n -e "${PURPLE}pleez select your ${LPURPLE}track: ${LGREEN}" # -n to stop carriage return
   read -n 2
   echo ""
 
@@ -57,15 +58,21 @@ playTrack(){
   vgmplay ${files[ans]}
 }
 
-while :
-do
-  listTracks
-  selectTrack
+vgmPlayer(){
+  # program loop
+  while :
+  do
+    listTracks
+    selectTrack
 
-  if [[ $end == true ]]
-  then
-    break
-  else
-    playTrack
-  fi
-done
+    if [[ $end == true ]] # if end var is changed
+    then
+      break # end while loop / program
+    else
+      playTrack
+    fi
+  done
+}
+
+# call program
+vgmPlayer
