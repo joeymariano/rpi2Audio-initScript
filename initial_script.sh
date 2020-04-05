@@ -30,21 +30,10 @@ selectTrack(){
   read -n 2 -p "pleez select your track: "
   echo ""
 
-  # need to handle errors here
-  # if detect q exit program
-  # if not a valid  number select again
-
   if [[ $REPLY == "q" ]]
   then
     end=true
   fi
-
-#  if [ $ans > ${#files[@]} ]
-#  then
-#    echo eRr0r
-#    echo
-#    selectTrack
-#  fi
 
   echo ""
 }
@@ -57,6 +46,7 @@ while :
 do
   listTracks
   selectTrack
+
   if [[ $end == true ]]
   then
     break
