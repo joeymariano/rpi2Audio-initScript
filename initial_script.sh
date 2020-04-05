@@ -40,14 +40,13 @@ selectTrack(){
     $end = true
   fi
 
- # if [ $ans > ${#files[@]} ]
- # then
- #   echo "error"
- #   echo ""
- #   selectTrack
- # fi
+#  if [ $ans > ${#files[@]} ]
+#  then
+#    echo "eRr0r"
+#    echo ""
+#    selectTrack
+#  fi
 
-  echo ""
   echo ""
 }
 
@@ -61,6 +60,12 @@ do
   selectTrack
   if [ $end ]
   then
+    echo "...EXIT"
+    sleep 1s
+    echo ""
+    sleep 1s
+    echo "...FINE"
+    echo ""
     break
   else
     playTrack
