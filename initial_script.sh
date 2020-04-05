@@ -33,6 +33,14 @@ selectTrack(){
   if [[ $REPLY == "q" ]]
   then
     end=true
+  else
+    if [[ $REPLY =~ [0-9] ]] && [[ ${#files[@]} > $REPLY ]]
+    # check if num w/regex && check if file array length is larger than number
+    then
+      ans=REPLY
+    else
+      selectTrack
+    fi
   fi
 
   echo ""
