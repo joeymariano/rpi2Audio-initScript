@@ -9,8 +9,10 @@ cd /home/pi/Music/vgmSet
 files=(*.vgm)
 count=0
 ans=""
+end=false
 
 listTracks(){
+  count=0
   echo ""
   echo "files in ~/Music/vgmSet"
   echo ""
@@ -27,7 +29,23 @@ listTracks(){
 selectTrack(){
   echo -n "pleez select your track: "
 
-  read -n 1 ans
+  read -n 2 ans
+
+  # need to handle errors here
+  # if detect q exit program
+  # if not a valid  number select again
+
+  if [ $ans = "q" ]
+  then
+    $end = true
+  fi
+
+ # if [ $ans > ${#files[@]} ]
+ # then
+ #   echo "error"
+ #   echo ""
+ #   selectTrack
+ # fi
 
   echo ""
   echo ""
@@ -37,6 +55,14 @@ playTrack(){
   vgmplay ${files[ans]}
 }
 
-listTracks
-selectTrack
-playTrack
+while :
+do
+  listTracks
+  selectTrack
+  if [ $end ]
+  then
+    break
+  else
+    playTrack
+  fi
+done
