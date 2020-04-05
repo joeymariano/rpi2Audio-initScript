@@ -8,6 +8,7 @@
 cd /home/pi/Music/vgmSet
 files=(*.vgm)
 count=0
+ans=""
 
 listTracks(){
   echo ""
@@ -30,9 +31,12 @@ selectTrack(){
 
   echo ""
   echo ""
+}
 
-  return $ans
+playTrack(){
+  vgmplay ${files[ans]}
 }
 
 listTracks
 selectTrack
+playTrack
