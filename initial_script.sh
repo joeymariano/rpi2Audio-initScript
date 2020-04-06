@@ -43,7 +43,6 @@ selectTrack(){
   if [[ $REPLY == "q" ]]
   then
     end=true
-    echo -e "${NC}" # turn off font colors before shutdown
   else
     if [[ $REPLY =~ [0-9] ]] && [[ ${#files[@]} > $REPLY ]]
     # check if num w/regex && check if file array length is larger than number
@@ -68,6 +67,7 @@ vgmPlayer(){
 
     if [[ $end == true ]] # if end var is changed
     then
+      echo -e "${NC}" # turn off font colors before shutdown
       break # end while loop / program
     else
       playTrack
