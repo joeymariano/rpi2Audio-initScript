@@ -10,7 +10,7 @@
 # clear screen, change dir, and setup variables
 clear
 cd /home/pi/Music/vgmSet
-files=(*.vgm) # load all files into array
+files=(*.vgm) # load all filenames into array
 count=0
 ans=""
 end=false
@@ -67,7 +67,7 @@ vgmPlayer(){
 
     if [[ $end == true ]] # if end var is changed
     then
-      echo -e "${NC}" # turn off font colors before shutdown
+      echo -n -e "${NC}" # turn off font colors before shutdown
       break # end while loop / program
     else
       playTrack
