@@ -5,12 +5,12 @@
 # and comment out the last
 # for audio player instead
 
-# vgmplayer on boot
+# ////// VGMPLYR ////// #
 
 # clear screen, change dir, and setup variables
 clear
 cd /home/pi/Music/vgmSet
-files=(*.vgm) # load all filenames into array
+files=(*.vgm) # load all .vgm filenames into array
 count=0
 ans=""
 end=false
@@ -23,7 +23,8 @@ CYANBG="\033[46m"
 BLACK="\033[0;30m"
 NC="\033[0m" # no color
 
-# functions
+# ////// FUNCTIONS ////// #
+
 listTracks(){
   count=0
   echo -e "\n${PURPLE}files in ${LPURPLE}~/Music/vgmSet${NC}\n" # -e to allow color
@@ -57,6 +58,8 @@ selectTrack(){
 playTrack(){
   vgmplay ${files[ans]}
 }
+
+# ////// TOP LEVEL FUNCTION ////// #
 
 vgmPlayer(){
   # program loop
