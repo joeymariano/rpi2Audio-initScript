@@ -38,7 +38,7 @@ listTracks(){
 selectTrack(){
   echo -n -e "\n${PURPLE}pleez select your ${LPURPLE}track: ${LGREEN}" # -n to stop carriage return
   read -n 2
-  echo -e "${BLACK}${CYANBG}"
+  echo -e ${BLACK}${CYANBG}
 
   if [[ $REPLY == "q" ]]
   then
@@ -67,7 +67,7 @@ vgmPlayer(){
 
     if [[ $end == true ]] # if end var is changed
     then
-      echo -n -e "${NC}" # turn off font colors before shutdown
+      echo -n -e $NC # turn off font colors before shutdown
       break # end while loop / program
     else
       playTrack
