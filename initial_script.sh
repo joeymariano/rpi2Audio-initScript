@@ -5,7 +5,7 @@
 # and comment out the last
 # for audio player instead
 
-# ////// VGMPLYR ////// #
+# ////// PLYR ////// #
 
 # clear screen, change dir, and setup variables
 clear
@@ -55,13 +55,13 @@ selectTrack(){
   fi
 }
 
-playTrack(){
+playVgmTrack(){
   vgmplay ${files[ans]}
 }
 
 # ////// TOP LEVEL FUNCTION ////// #
 
-vgmPlayer(){
+plyr(){
   # program loop
   while :
   do
@@ -73,10 +73,10 @@ vgmPlayer(){
       echo -n -e $NC # turn off font colors before shutdown
       break # end while loop / program
     else
-      playTrack
+      playVgmTrack
     fi
   done
 }
 
 # call program
-vgmPlayer
+plyr
